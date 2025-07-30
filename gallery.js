@@ -1,6 +1,6 @@
 // Configuration
     const config = {
-        activities: ["KOODE", "CAMP", "TREE", "BLOO", "CLEN", "SPRT", "SEMI", "WKSH"], // Example activity codes
+        activities: ["KOODE", "NTDC", "CAMP"], // Example activity codes
         maxImages: 20,
         apiUrl: "https://schoolwiki.in/api.php",
         imageBaseUrl: "https://schoolwiki.in/images/",
