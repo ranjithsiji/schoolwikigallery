@@ -11,19 +11,49 @@
 </head>
 
 <body>
-    <h1>Schoolwiki.in - NSS Activities Gallery</h1>
-
-    <div class="activity-filter" id="activityFilter">
-        <select class="filter-select" id="activitySelect">
-            <!-- Options will be added dynamically -->
-        </select>
+    <h1>NSS Activities Gallery</h1>
+    
+    <div class="control-panel">
+        <div class="control-group">
+            <label for="schoolCode">School Code:</label>
+            <input type="text" id="schoolCode" class="control-input" value="14009" placeholder="Enter school code">
+        </div>
+    
+        <div class="control-group">
+            <label for="districtCode">District:</label>
+            <select id="districtCode" class="control-select">
+                <option value="KGD">Kasaragod (KGD)</option>
+                <option value="KNR">Kannur (KNR)</option>
+                <option value="WYD">Wayanad (WYD)</option>
+                <option value="KZK">Kozhikode (KZK)</option>
+                <option value="MLP">Malappuram (MLP)</option>
+                <option value="PLK">Palakkad (PLK)</option>
+                <option value="TSR">Thrissur (TSR)</option>
+                <option value="EKM">Ernakulam (EKM)</option>
+                <option value="IDK">Idukki (IDK)</option>
+                <option value="KTM">Kottayam (KTM)</option>
+                <option value="ALP">Alappuzha (ALP)</option>
+                <option value="PTA">Pathanamthitta (PTA)</option>
+                <option value="KLM">Kollam (KLM)</option>
+                <option value="TVM">Thiruvananthapuram (TVM)</option>
+            </select>
+        </div>
+    
+        <div class="control-group">
+            <label for="activitySelect">Activity:</label>
+            <select id="activitySelect" class="control-select">
+                <!-- Options will be added dynamically -->
+            </select>
+        </div>
+    
+        <button id="searchBtn" class="search-btn">Load Images</button>
     </div>
-
-    <div id="currentActivity" class="activity-header">Loading KOODE activities...</div>
-
-    <div id="loadingMessage" class="loading">Loading gallery images...</div>
+    
+    <div id="currentActivity" class="activity-header">Ready to load images...</div>
+    
+    <div id="loadingMessage" class="loading" style="display: none;">Loading gallery images...</div>
     <div id="errorMessage" class="error-message" style="display: none;"></div>
-
+    
     <div class="gallery-container" id="nssGallery"></div>
 </body>
 
