@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Activities Gallery Viewer - Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+        }
+
+        h2 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+        }
+
+        code {
+            background-color: rgba(27, 31, 35, 0.05);
+            border-radius: 3px;
+            padding: 0.2em 0.4em;
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+        }
+
+        pre {
+            background-color: #f6f8fa;
+            border-radius: 3px;
+            padding: 16px;
+            overflow: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        th {
+            background-color: #f6f8fa;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .highlight {
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NSS Activities Gallery Viewer</h1>
+    <p>A web application to browse NSS (National Service Scheme) activity images from schoolwiki.in with customizable
+        filters.</p>
+    <p>
+        <a href="index.html">View Gallery</a>
+    </p>
+    <!-- Add a screenshot if available -->
+    <!-- <img src="screenshot.png" alt="Gallery Screenshot"> -->
+
+    <h2>Features</h2>
+    <ul>
+        <li>View NSS activity images by school, district, and activity type</li>
+        <li>Responsive image gallery layout</li>
+        <li>Thumbnail previews for faster loading</li>
+        <li>Customizable filters:
+            <ul>
+                <li>School code input</li>
+                <li>District code dropdown</li>
+                <li>Activity type selector</li>
+            </ul>
+        </li>
+        <li>"All Activities" view option</li>
+        <li>Real-time loading status</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <p>No installation required - runs directly in the browser:</p>
+    <pre><code>Simply open the index.html file in any modern web browser</code></pre>
+    <p>For local development:</p>
+    <pre><code>git clone https://github.com/yourusername/nss-gallery-viewer.git
+cd nss-gallery-viewer
+open index.html</code></pre>
+
+    <h2>Configuration</h2>
+    <h3>Core Settings</h3>
+    <p>Edit these values in the JavaScript code:</p>
+    <pre><code>const config = {
+    activities: ["KOODE", "CAMP", "TREE", "BLOO", "CLEN", "SPRT", "SEMI", "WKSH"],
+    maxImages: 20,
+    apiUrl: "https://schoolwiki.in/api.php",
+    imageBaseUrl: "https://schoolwiki.in/images/",
+    thumbnailWidth: 300
+};</code></pre>
+
+    <h3>Default Values</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Setting</th>
+                <th>Default Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>School Code</td>
+                <td>14009</td>
+            </tr>
+            <tr>
+                <td>District Code</td>
+                <td>KGD</td>
+            </tr>
+            <tr>
+                <td>Activity</td>
+                <td>KOODE</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Supported District Codes</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>District</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>KGD</td>
+                <td>Kasaragod</td>
+            </tr>
+            <tr>
+                <td>KNR</td>
+                <td>Kannur</td>
+            </tr>
+            <tr>
+                <td>WYD</td>
+                <td>Wayanad</td>
+            </tr>
+            <tr>
+                <td>KZK</td>
+                <td>Kozhikode</td>
+            </tr>
+            <tr>
+                <td>MLP</td>
+                <td>Malappuram</td>
+            </tr>
+            <tr>
+                <td>PLK</td>
+                <td>Palakkad</td>
+            </tr>
+            <tr>
+                <td>TSR</td>
+                <td>Thrissur</td>
+            </tr>
+            <tr>
+                <td>EKM</td>
+                <td>Ernakulam</td>
+            </tr>
+            <tr>
+                <td>IDK</td>
+                <td>Idukki</td>
+            </tr>
+            <tr>
+                <td>KTM</td>
+                <td>Kottayam</td>
+            </tr>
+            <tr>
+                <td>ALP</td>
+                <td>Alappuzha</td>
+            </tr>
+            <tr>
+                <td>PTA</td>
+                <td>Pathanamthitta</td>
+            </tr>
+            <tr>
+                <td>KLM</td>
+                <td>Kollam</td>
+            </tr>
+            <tr>
+                <td>TVM</td>
+                <td>Thiruvananthapuram</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Image Format</h2>
+    <p>Images must follow this naming pattern:</p>
+    <pre><code>NSS2025-{schoolcode}-{districtcode}-{activitycode}-{imagenumber}.jpg</code></pre>
+    <p>Example:</p>
+    <pre><code>NSS2025-14009-KGD-KOODE-01.jpg</code></pre>
+
+    <h2>Troubleshooting</h2>
+    <h3>Common Issues</h3>
+    <p><strong>CORS Errors</strong><br>
+        - Request CORS headers from schoolwiki.in admin<br>
+        - Set up a local proxy server<br>
+        - Use browser extension to disable CORS (dev only)</p>
+
+    <p><strong>Images Not Loading</strong><br>
+        ✅ Verify school code<br>
+        ✅ Check image naming convention<br>
+        ✅ Test internet connection</p>
+
+    <p><strong>Slow Performance</strong><br>
+        - Reduce <code>maxImages</code> value<br>
+        - Increase request delay in code</p>
+
+    <h2>Development</h2>
+    <h3>Dependencies</h3>
+    <ul>
+        <li><a href="https://code.jquery.com/jquery-3.6.0.min.js">jQuery 3.6.0</a></li>
+        <li>MediaWiki API</li>
+    </ul>
+
+    <h3>Customization</h3>
+    <p>1. Add new activities:</p>
+    <pre><code>activities: ["NEWCODE", ...]</code></pre>
+
+    <p>2. Change defaults:</p>
+    <pre><code>&lt;input value="NEW_SCHOOL_CODE"&gt;
+&lt;select&gt;
+  &lt;option value="NEW_DISTRICT" selected&gt;...
+&lt;/select&gt;</code></pre>
+
+    <h2>License</h2>
+    <p>MIT License © 2025 [Ranjithsiji]</p>
+</body>
+
+</html>
